@@ -12,4 +12,9 @@ node('maven'){
   stage('package'){
       sh "${mvnhome}/bin/mvn clean package -Dskiptest"
   }
+  stage('deployment'){
+      sshagent(['new-machine']) {
+    sh "scp -o StrictHostKeyChecking=no /home/ec2-user/workspace/new-work/target/my-app-1-RELEASE.jar ec2-user@54.236.4.88:/home/ec2-user/"
+  }
+  }
 }
