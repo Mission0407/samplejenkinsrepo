@@ -1,4 +1,4 @@
 node('maven'){
-  tool name: 'maven361', type: 'maven'
+  def mvnhome = tool name: 'maven361', type: 'maven'
 }
   
