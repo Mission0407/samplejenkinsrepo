@@ -9,6 +9,6 @@ node('maven'){
     //junit allowEmptyResults: true, testResults: 'target/surefire-reports/'
   }
   stage('package'){
-    sh "${mvnhome}/bin/mvn package DskipTests=true"
+    sh "${mvnhome}/bin/mvn package -DskipTests=true"
   }
 }
