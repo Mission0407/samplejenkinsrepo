@@ -4,7 +4,7 @@ node('maven'){
   git 'https://github.com/Mission0407/samplejenkinsrepo.git'
 }
   stage('build'){
-    sh "${mvnhome}/bin/mvn clean test"
+    sh "${mvnhome}/bin/mvn clean test surefire-report:report-only"
     archiveArtifacts 'target/surefire-reports/*'
     //junit allowEmptyResults: true, testResults: 'target/surefire-reports/'junit 'target/surefire-reports/*.xml'
     junit 'target/surefire-reports/*.xml'
